@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.calmconnect.view.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_to_mood_history"
+            app:destination="@id/mood_history_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_today"
+        android:name="com.example.calmconnect.view.TodayFragment"
+        android:label="Today"
+        tools:layout="@layout/fragment_today" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.example.calmconnect.view.ToolsFragment"
+        android:label="Tools"
+        tools:layout="@layout/fragment_tools">
+
+        <action
+            android:id="@+id/action_tools_to_soundscapes"
+            app:destination="@id/soundscapes_fragment" />
+
+        <action
+            android:id="@+id/action_tools_to_stress_relief"
+            app:destination="@id/stress_relief_fragment" />
+
+        <action
+            android:id="@+id/action_tools_to_pomodoro"
+            app:destination="@id/pomodoro_fragment" />
+
+        <action
+            android:id="@+id/action_tools_to_games"
+            app:destination="@id/games_fragment" />
+
+        <action
+            android:id="@+id/action_tools_to_quotes"
+            app:destination="@id/quotes_fragment" />
+
+        <action
+            android:id="@+id/action_tools_to_nearby_places"
+            app:destination="@id/nearby_places_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.calmconnect.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/soundscapes_fragment"
+        android:name="com.example.calmconnect.view.SoundscapesFragment"
+        android:label="Soundscapes"
+        tools:layout="@layout/fragment_soundscapes" />
+
+    <fragment
+        android:id="@+id/stress_relief_fragment"
+        android:name="com.example.calmconnect.view.StressReliefFragment"
+        android:label="Stress Relief"
+        tools:layout="@layout/fragment_stress_relief" />
+
+    <fragment
+        android:id="@+id/pomodoro_fragment"
+        android:name="com.example.calmconnect.view.PomodoroFragment"
+        android:label="Pomodoro"
+        tools:layout="@layout/fragment_pomodoro" />
+
+    <fragment
+        android:id="@+id/games_fragment"
+        android:name="com.example.calmconnect.view.GamesFragment"
+        android:label="Games"
+        tools:layout="@layout/fragment_games" />
+
+    <fragment
+        android:id="@+id/quotes_fragment"
+        android:name="com.example.calmconnect.view.QuotesFragment"
+        android:label="Quotes"
+        tools:layout="@layout/fragment_quotes" />
+
+    <fragment
+        android:id="@+id/nearby_places_fragment"
+        android:name="com.example.calmconnect.view.NearbyPlacesFragment"
+        android:label="Nearby Places"
+        tools:layout="@layout/fragment_nearby_places" />
+
+    <fragment
+        android:id="@+id/mood_history_fragment"
+        android:name="com.example.calmconnect.view.MoodHistoryFragment"
+        android:label="Mood History"
+        tools:layout="@layout/fragment_mood_history" />
+
+</navigation>

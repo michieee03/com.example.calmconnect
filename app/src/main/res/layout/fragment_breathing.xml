@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Breathing Pattern"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupPattern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/radioBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Box 4-4-4-4"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioRelaxing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Relaxing 4-7-8" />
+
+        <RadioButton
+            android:id="@+id/radioEnergizing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Energizing 2-2-4" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnStartBreathing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvPhaseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="—"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+</LinearLayout>

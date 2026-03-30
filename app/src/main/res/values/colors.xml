@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="calm_primary">#7C4DFF</color>
+    <color name="calm_primary_dark">#5E35B1</color>
+    <color name="calm_bg">#F6F4FB</color>
+    <color name="calm_card">#FFFFFF</color>
+    <color name="calm_text">#2E2A3B</color>
+    <color name="calm_subtext">#7A748A</color>
+    <color name="calm_accent">#B39DDB</color>
+    <color name="calm_success">#66BB6A</color>
+    <color name="calm_circle">#D1C4E9</color>
+    <color name="memory_card_front">#7C4DFF</color>
+    <color name="memory_card_back">#EDE7F6</color>
+
+    <!-- Login / Signup UI colors -->
+    <color name="bg_main">#F6F4FB</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="text_main">#2E2A3B</color>
+    <color name="text_sub">#7A748A</color>
+    <color name="text_hint">#9A94AA</color>
+    <color name="text_input">#2E2A3B</color>
+    <color name="input_stroke">#D1C4E9</color>
+    <color name="button_main">#7C4DFF</color>
+    <color name="link_text">#7C4DFF</color>
+</resources>

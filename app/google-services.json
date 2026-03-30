@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "682035621921",
+    "project_id": "calmconnect-b37b4",
+    "storage_bucket": "calmconnect-b37b4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682035621921:android:fbec9d88dfe1addda67360",
+        "android_client_info": {
+          "package_name": "com.example.calmconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJLPvOUnEU0FcO_04-IbJmTK4Qao4XZR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

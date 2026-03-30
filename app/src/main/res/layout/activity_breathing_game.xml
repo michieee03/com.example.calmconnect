@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_game_screen"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Breathing Exercise"
+        android:textColor="@color/calm_text"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/tvInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press Start"
+        android:textColor="@color/calm_primary_dark"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/tvRounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rounds: 0"
+        android:textColor="@color/calm_subtext"
+        android:textSize="16sp"
+        android:layout_marginBottom="30dp" />
+
+    <View
+        android:id="@+id/breathingCircle"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@drawable/bg_breathing_circle"
+        android:layout_marginBottom="36dp" />
+
+    <Button
+        android:id="@+id/btnStartBreathing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart"
+        android:textAllCaps="false"
+        android:layout_marginTop="12dp" />
+</LinearLayout>

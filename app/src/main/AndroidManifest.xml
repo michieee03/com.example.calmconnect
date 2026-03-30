@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name=".CalmConnectApp"
+        android:allowBackup="true"
+        android:label="Calm Connect"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CalmConnect">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".view.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CalmConnect.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.SignupActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false" />
+
+        <activity android:name=".view.TappingGameActivity" />
+        <activity android:name=".view.MemoryGameActivity" />
+        <activity android:name=".view.BreathingGameActivity" />
+
+    </application>
+
+</manifest>
