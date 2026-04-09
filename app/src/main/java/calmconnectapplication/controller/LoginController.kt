@@ -1,6 +1,6 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
-import com.example.calmconnect.util.Result
+import calmconnectapplication.util.Result
 
 interface LoginController {
     fun validateLogin(username: String, password: String): Result<Unit>

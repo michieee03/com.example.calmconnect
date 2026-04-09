@@ -1,12 +1,12 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.calmconnect.R
-import com.example.calmconnect.databinding.ActivityMainBinding
+import calmconnectapplication.R
+import calmconnectapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

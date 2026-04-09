@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_500">#BB86FC</color>
-    <color name="purple_700">#8E67F8</color>
-    <color name="teal_200">#03DAC5</color>
-    <color name="teal_700">#03DAC5</color>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-
+    <!-- Dark mode overrides -->
     <color name="calm_primary">#B39DDB</color>
-    <color name="calm_primary_dark">#7C4DFF</color>
-    <color name="calm_bg">#121212</color>
-    <color name="calm_card">#1E1E1E</color>
-    <color name="calm_text">#F3EEFF</color>
-    <color name="calm_subtext">#B0A9C0</color>
-    <color name="calm_accent">#D1C4E9</color>
-    <color name="calm_success">#81C784</color>
-    <color name="calm_circle">#4A4458</color>
-    <color name="memory_card_front">#B39DDB</color>
-    <color name="memory_card_back">#2B2238</color>
+    <color name="calm_primary_dark">#9575CD</color>
+    <color name="calm_bg">#121218</color>
+    <color name="calm_card">#1E1E2A</color>
+    <color name="calm_text">#E8E4F0</color>
+    <color name="calm_subtext">#A89EC0</color>
+    <color name="calm_accent">#7C4DFF</color>
+    <color name="calm_success">#4CAF93</color>
+    <color name="calm_circle">#3D3550</color>
+    <color name="memory_card_front">#9575CD</color>
+    <color name="memory_card_back">#2A2040</color>
 
-    <!-- Login / Signup UI colors -->
-    <color name="bg_main">#121212</color>
-    <color name="card_bg">#1E1E1E</color>
-    <color name="text_main">#F3EEFF</color>
-    <color name="text_sub">#B0A9C0</color>
-    <color name="text_hint">#9D96AD</color>
-    <color name="text_input">#FFFFFF</color>
-    <color name="input_stroke">#4A4458</color>
+    <!-- Dark gradient — deep navy-purple tones -->
+    <color name="gradient_start">#1A1A2E</color>
+    <color name="gradient_mid">#16213E</color>
+    <color name="gradient_end">#0F3460</color>
+
+    <!-- Login / Signup dark variants -->
+    <color name="bg_main">#121218</color>
+    <color name="card_bg">#1E1E2A</color>
+    <color name="text_main">#E8E4F0</color>
+    <color name="text_sub">#A89EC0</color>
+    <color name="text_hint">#7A748A</color>
+    <color name="text_input">#E8E4F0</color>
+    <color name="input_stroke">#4A3F6B</color>
     <color name="button_main">#7C4DFF</color>
     <color name="link_text">#B39DDB</color>
 </resources>

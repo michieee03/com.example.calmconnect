@@ -1,4 +1,4 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.model.LatLng

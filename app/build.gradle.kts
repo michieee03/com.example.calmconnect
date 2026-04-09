@@ -16,7 +16,7 @@ val localProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.example.calmconnect"
+    namespace = "calmconnectapplication"
     compileSdk = 34
 
     defaultConfig {
@@ -81,6 +81,7 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
 
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)

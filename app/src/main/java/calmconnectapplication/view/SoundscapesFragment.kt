@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.calmconnect.controller.impl.SoundControllerImpl
-import com.example.calmconnect.databinding.FragmentSoundscapesBinding
-import com.example.calmconnect.model.SoundType
+import calmconnectapplication.controller.impl.SoundControllerImpl
+import calmconnectapplication.databinding.FragmentSoundscapesBinding
+import calmconnectapplication.model.SoundType
 
 class SoundscapesFragment : Fragment() {
 
@@ -63,6 +63,10 @@ class SoundscapesFragment : Fragment() {
                 soundController.setTimer(minutes)
                 Toast.makeText(requireContext(), "Timer set for $minutes min", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.btnClose.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

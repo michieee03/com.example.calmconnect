@@ -1,8 +1,8 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.dao.QuoteDao
-import com.example.calmconnect.db.entity.Quote
+import calmconnectapplication.db.dao.QuoteDao
+import calmconnectapplication.db.entity.Quote
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

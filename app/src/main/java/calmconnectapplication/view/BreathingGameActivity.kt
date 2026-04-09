@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import com.example.calmconnect.controller.impl.GameControllerImpl
-import com.example.calmconnect.databinding.ActivityBreathingGameBinding
-import com.example.calmconnect.model.GameType
+import calmconnectapplication.controller.impl.GameControllerImpl
+import calmconnectapplication.databinding.ActivityBreathingGameBinding
+import calmconnectapplication.model.GameType
 
 class BreathingGameActivity : AppCompatActivity() {
 
@@ -25,6 +25,8 @@ class BreathingGameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         gameController = GameControllerImpl(this)
+
+        binding.btnClose.setOnClickListener { finish() }
 
         binding.tvRounds.text = "Rounds: 0"
         binding.tvInstruction.text = "Press Start"

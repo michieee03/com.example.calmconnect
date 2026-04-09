@@ -1,4 +1,4 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -9,8 +9,8 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.calmconnect.controller.LocationController
-import com.example.calmconnect.model.CalmPlace
+import calmconnectapplication.controller.LocationController
+import calmconnectapplication.model.CalmPlace
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng

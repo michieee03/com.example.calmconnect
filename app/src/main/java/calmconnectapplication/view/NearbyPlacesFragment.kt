@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -10,9 +10,10 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.calmconnect.BuildConfig
-import com.example.calmconnect.controller.impl.LocationControllerImpl
-import com.example.calmconnect.databinding.FragmentNearbyPlacesBinding
+import calmconnectapplication.BuildConfig
+import calmconnectapplication.controller.impl.LocationControllerImpl
+import calmconnectapplication.databinding.FragmentNearbyPlacesBinding
+import calmconnectapplication.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -60,13 +61,17 @@ class NearbyPlacesFragment : Fragment(), OnMapReadyCallback {
         placesClient = Places.createClient(requireContext())
         locationController = LocationControllerImpl(requireContext(), placesClient)
 
-        val mapFrag = childFragmentManager.findFragmentById(com.example.calmconnect.R.id.mapFragment)
+        val mapFrag = childFragmentManager.findFragmentById(R.id.mapFragment)
                 as SupportMapFragment
         mapFrag.getMapAsync(this)
 
         binding.btnRetry.setOnClickListener {
             binding.btnRetry.visibility = View.GONE
             checkPermissionsAndLoad()
+        }
+
+        binding.btnClose.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

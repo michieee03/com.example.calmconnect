@@ -1,8 +1,9 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.dao.ProfileDao
-import com.example.calmconnect.db.entity.UserProfile
+import calmconnectapplication.db.dao.ProfileDao
+import calmconnectapplication.db.entity.UserProfile
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -16,9 +17,10 @@ class ProfileRepository(private val profileDao: ProfileDao) {
         profileDao.update(profile)
     }
 
-    fun getProfile(): LiveData<UserProfile?> = profileDao.getProfile()
+    fun getProfile(): LiveData<UserProfile?> =
+        profileDao.getProfile(UserSession.uid)
 
     suspend fun getProfileSync(): UserProfile? = withContext(Dispatchers.IO) {
-        profileDao.getProfileSync()
+        profileDao.getProfileSync(UserSession.uid)
     }
 }

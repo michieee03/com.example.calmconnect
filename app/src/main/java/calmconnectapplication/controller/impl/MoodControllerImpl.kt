@@ -1,11 +1,12 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.controller.MoodController
-import com.example.calmconnect.db.entity.MoodEntry
-import com.example.calmconnect.model.MoodRepository
-import com.example.calmconnect.util.Constants
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.MoodController
+import calmconnectapplication.db.entity.MoodEntry
+import calmconnectapplication.model.MoodRepository
+import calmconnectapplication.util.Constants
+import calmconnectapplication.util.Result
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -29,6 +30,7 @@ class MoodControllerImpl(private val moodRepository: MoodRepository) : MoodContr
 
         val date = dateFormatter.format(Date(timestamp))
         val entry = MoodEntry(
+            userId = UserSession.uid,
             emotion = emotion,
             note = note,
             timestamp = timestamp,

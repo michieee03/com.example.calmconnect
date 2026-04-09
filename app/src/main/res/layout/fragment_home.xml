@@ -3,172 +3,430 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp">
 
-        <!-- Mood Check-In Title -->
+        <!-- Header: greeting + bell -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/calmconnectlogo"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/CircleImageView"
+                android:contentDescription="Avatar" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello, there!"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/calm_subtext" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivBell"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@android:drawable/ic_dialog_info"
+                android:background="@drawable/bg_card_white"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Info" />
+
+        </LinearLayout>
+
+        <!-- How are you feeling -->
         <TextView
-            android:id="@+id/tvMoodTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="How are you feeling today?"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Emotion Chip Group -->
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupEmotions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:singleSelection="true"
-            app:selectionRequired="false"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipHappy"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😊 Happy" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSad"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😢 Sad" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipAnxious"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😰 Anxious" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipCalm"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😌 Calm" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipExcited"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎉 Excited" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipTired"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😴 Tired" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipAngry"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😠 Angry" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipStressed"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😓 Stressed" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipGrateful"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🙏 Grateful" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipNeutral"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="😐 Neutral" />
-
-        </com.google.android.material.chip.ChipGroup>
-
-        <!-- Optional Note Input -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Add a note (optional)"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etNote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:minLines="3"
-                android:maxLines="5"
-                android:gravity="top" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Save Mood Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSaveMood"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save Mood"
-            android:layout_marginBottom="8dp" />
-
-        <!-- View History Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnViewHistory"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View History"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/colorControlHighlight"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:gravity="center"
             android:layout_marginBottom="16dp" />
 
-        <!-- Quote of the Day Section -->
-        <TextView
-            android:id="@+id/tvQuoteSectionTitle"
+        <!-- Horizontal emotion RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEmotions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quote of the Day"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:clipToPadding="false"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp" />
 
+        <!-- Selected emotion label -->
         <TextView
-            android:id="@+id/tvQuoteText"
+            android:id="@+id/tvSelectedEmotion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceBody1"
-            android:fontFamily="serif"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:textColor="#4CAF93"
             android:textStyle="italic"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="16dp"
+            android:text="" />
 
-        <TextView
-            android:id="@+id/tvQuoteAuthor"
+        <!-- Save Mood + View History row -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceCaption"
-            android:textAlignment="textEnd" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveMood"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Save Mood"
+                android:textSize="13sp"
+                android:backgroundTint="#4CAF93"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewHistory"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="History"
+                android:textSize="13sp"
+                app:strokeColor="#4CAF93"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+
+        <!-- Featured calm activity card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_white"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="🧘"
+                android:textSize="26sp"
+                android:gravity="center"
+                android:background="@drawable/bg_health_card"
+                android:layout_marginEnd="14dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Relaxation Meditation"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="This 5 min meditation helps reduce stress, boost, and calm mind"
+                    android:textSize="11sp"
+                    android:textColor="@color/calm_subtext"
+                    android:maxLines="2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏱ 5 mins"
+                        android:textSize="11sp"
+                        android:textColor="#4CAF93"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨ Incentive"
+                        android:textSize="11sp"
+                        android:textColor="#4CAF93" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Quote of the Day card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💬 Quote of the Day"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/calm_text"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvQuoteText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/calm_text"
+                android:fontFamily="serif"
+                android:textStyle="italic"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvQuoteAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@color/calm_subtext"
+                android:textAlignment="textEnd" />
+
+        </LinearLayout>
+
+        <!-- Health condition section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Health Condition"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- My Heart card -->
+            <LinearLayout
+                android:id="@+id/cardMyHeart"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_health_card"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="❤️"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_white"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Heart"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mood tracker"
+                    android:textSize="11sp"
+                    android:textColor="#5A7A6A" />
+
+            </LinearLayout>
+
+            <!-- Stress Level card -->
+            <LinearLayout
+                android:id="@+id/cardStressLevel"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="🧠"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_health_card"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stress Level"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check &amp; manage"
+                    android:textSize="11sp"
+                    android:textColor="@color/calm_subtext" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Calming features row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Breathing card -->
+            <LinearLayout
+                android:id="@+id/cardBreathing"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌬️"
+                    android:textSize="22sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Breathing"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <!-- Sleep card -->
+            <LinearLayout
+                android:id="@+id/cardSleep"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_health_card"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌙"
+                    android:textSize="22sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sleep"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <!-- Sounds card -->
+            <LinearLayout
+                android:id="@+id/cardSounds"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎵"
+                    android:textSize="22sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sounds"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

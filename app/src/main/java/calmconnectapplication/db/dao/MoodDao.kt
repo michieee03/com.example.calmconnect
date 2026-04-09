@@ -1,4 +1,4 @@
-package com.example.calmconnect.db.dao
+package calmconnectapplication.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,22 +6,22 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.calmconnect.db.entity.MoodEntry
+import calmconnectapplication.db.entity.MoodEntry
 
 @Dao
 interface MoodDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entry: MoodEntry)
 
-    @Delete
-    suspend fun delete(entry: MoodEntry)
+    @Query("DELETE FROM mood_entries WHERE id = :id AND userId = :userId")
+    suspend fun deleteById(id: Int, userId: String)
 
-    @Query("DELETE FROM mood_entries WHERE id = :id")
-    suspend fun deleteById(id: Int)
+    @Query("SELECT * FROM mood_entries WHERE userId = :userId ORDER BY timestamp ASC")
+    fun getAllByUser(userId: String): LiveData<List<MoodEntry>>
 
-    @Query("SELECT * FROM mood_entries ORDER BY timestamp ASC")
-    fun getAllOrderedByTimestamp(): LiveData<List<MoodEntry>>
+    @Query("SELECT * FROM mood_entries WHERE userId = :userId ORDER BY timestamp ASC")
+    suspend fun getAllByUserSync(userId: String): List<MoodEntry>
 
-    @Query("SELECT * FROM mood_entries WHERE date = :date")
-    suspend fun getByDate(date: String): List<MoodEntry>
+    @Query("SELECT * FROM mood_entries WHERE userId = :userId AND date = :date")
+    suspend fun getByDate(userId: String, date: String): List<MoodEntry>
 }

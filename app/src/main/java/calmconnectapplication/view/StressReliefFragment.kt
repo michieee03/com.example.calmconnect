@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import com.example.calmconnect.controller.impl.StressReliefControllerImpl
-import com.example.calmconnect.databinding.FragmentStressReliefBinding
-import com.example.calmconnect.db.AppDatabase
-import com.example.calmconnect.model.JournalRepository
+import calmconnectapplication.controller.impl.StressReliefControllerImpl
+import calmconnectapplication.databinding.FragmentStressReliefBinding
+import calmconnectapplication.db.AppDatabase
+import calmconnectapplication.model.JournalRepository
 
 class StressReliefFragment : Fragment() {
 
@@ -41,6 +41,10 @@ class StressReliefFragment : Fragment() {
                 else -> "Journal"
             }
         }.attach()
+
+        binding.btnClose.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     override fun onDestroyView() {

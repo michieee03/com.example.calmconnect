@@ -1,4 +1,4 @@
-package com.example.calmconnect.util
+package calmconnectapplication.util
 
 /**
  * A generic sealed class representing the outcome of an operation.

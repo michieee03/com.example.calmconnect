@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.calmconnect.view.HomeFragment"
+        android:name="calmconnectapplication.view.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
 
@@ -15,17 +15,29 @@
             android:id="@+id/action_home_to_mood_history"
             app:destination="@id/mood_history_fragment" />
 
+        <action
+            android:id="@+id/action_home_to_stress_relief"
+            app:destination="@id/stress_relief_fragment" />
+
+        <action
+            android:id="@+id/action_home_to_stress_tracker"
+            app:destination="@id/stress_tracker_fragment" />
+
+        <action
+            android:id="@+id/action_home_to_soundscapes"
+            app:destination="@id/soundscapes_fragment" />
+
     </fragment>
 
     <fragment
         android:id="@+id/nav_today"
-        android:name="com.example.calmconnect.view.TodayFragment"
+        android:name="calmconnectapplication.view.TodayFragment"
         android:label="Today"
         tools:layout="@layout/fragment_today" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.calmconnect.view.ToolsFragment"
+        android:name="calmconnectapplication.view.ToolsFragment"
         android:label="Tools"
         tools:layout="@layout/fragment_tools">
 
@@ -57,50 +69,68 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.calmconnect.view.ProfileFragment"
+        android:name="calmconnectapplication.view.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profile_to_zen_garden"
+            app:destination="@id/zen_garden_fragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/soundscapes_fragment"
-        android:name="com.example.calmconnect.view.SoundscapesFragment"
+        android:name="calmconnectapplication.view.SoundscapesFragment"
         android:label="Soundscapes"
         tools:layout="@layout/fragment_soundscapes" />
 
     <fragment
         android:id="@+id/stress_relief_fragment"
-        android:name="com.example.calmconnect.view.StressReliefFragment"
+        android:name="calmconnectapplication.view.StressReliefFragment"
         android:label="Stress Relief"
         tools:layout="@layout/fragment_stress_relief" />
 
     <fragment
         android:id="@+id/pomodoro_fragment"
-        android:name="com.example.calmconnect.view.PomodoroFragment"
+        android:name="calmconnectapplication.view.PomodoroFragment"
         android:label="Pomodoro"
         tools:layout="@layout/fragment_pomodoro" />
 
     <fragment
         android:id="@+id/games_fragment"
-        android:name="com.example.calmconnect.view.GamesFragment"
+        android:name="calmconnectapplication.view.GamesFragment"
         android:label="Games"
         tools:layout="@layout/fragment_games" />
 
     <fragment
         android:id="@+id/quotes_fragment"
-        android:name="com.example.calmconnect.view.QuotesFragment"
+        android:name="calmconnectapplication.view.QuotesFragment"
         android:label="Quotes"
         tools:layout="@layout/fragment_quotes" />
 
     <fragment
         android:id="@+id/nearby_places_fragment"
-        android:name="com.example.calmconnect.view.NearbyPlacesFragment"
+        android:name="calmconnectapplication.view.NearbyPlacesFragment"
         android:label="Nearby Places"
         tools:layout="@layout/fragment_nearby_places" />
 
     <fragment
         android:id="@+id/mood_history_fragment"
-        android:name="com.example.calmconnect.view.MoodHistoryFragment"
+        android:name="calmconnectapplication.view.MoodHistoryFragment"
         android:label="Mood History"
         tools:layout="@layout/fragment_mood_history" />
+
+    <fragment
+        android:id="@+id/stress_tracker_fragment"
+        android:name="calmconnectapplication.view.StressTrackerFragment"
+        android:label="Stress Tracker"
+        tools:layout="@layout/fragment_stress_tracker" />
+
+    <fragment
+        android:id="@+id/zen_garden_fragment"
+        android:name="calmconnectapplication.view.ZenGardenFragment"
+        android:label="Zen Garden"
+        tools:layout="@layout/fragment_zen_garden" />
 
 </navigation>

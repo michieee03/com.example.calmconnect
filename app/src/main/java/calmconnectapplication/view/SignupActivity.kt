@@ -1,14 +1,20 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.calmconnect.R
-import com.example.calmconnect.databinding.ActivitySignupBinding
+import calmconnectapplication.R
+import calmconnectapplication.databinding.ActivitySignupBinding
+import calmconnectapplication.db.AppDatabase
+import calmconnectapplication.db.entity.UserProfile
+import calmconnectapplication.model.ProfileRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignupActivity : AppCompatActivity() {
 
@@ -90,17 +96,30 @@ class SignupActivity : AppCompatActivity() {
 
                         if (task.isSuccessful) {
                             val user = auth.currentUser
+                            val uid = user?.uid ?: ""
 
                             val profileUpdates = UserProfileChangeRequest.Builder()
                                 .setDisplayName(fullName)
                                 .build()
-
                             user?.updateProfile(profileUpdates)
 
+                            // Seed the user's profile row in Room immediately
+                            CoroutineScope(Dispatchers.IO).launch {
+                                val db = AppDatabase.getInstance(applicationContext)
+                                val repo = ProfileRepository(db.profileDao())
+                                val existing = db.profileDao().getProfileSync(uid)
+                                if (existing == null) {
+                                    repo.insert(UserProfile(
+                                        userId = uid,
+                                        name = fullName,
+                                        profilePictureUri = null,
+                                        isDarkMode = false
+                                    ))
+                                }
+                            }
+
                             Toast.makeText(this, "Signup successful", Toast.LENGTH_SHORT).show()
-
                             auth.signOut()
-
                             startActivity(Intent(this, LoginActivity::class.java))
                             finish()
                         } else {

@@ -1,9 +1,10 @@
-package com.example.calmconnect
+package calmconnectapplication
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.calmconnect.db.AppDatabase
-import com.example.calmconnect.model.ProfileRepository
+import calmconnectapplication.db.AppDatabase
+import calmconnectapplication.model.ProfileRepository
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.*
 
 class CalmConnectApp : Application() {
@@ -19,7 +20,7 @@ class CalmConnectApp : Application() {
                 val profile = profileRepo.getProfileSync()
 
                 val mode = when {
-                    profile == null -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                    profile == null -> AppCompatDelegate.MODE_NIGHT_NO
                     profile.isDarkMode -> AppCompatDelegate.MODE_NIGHT_YES
                     else -> AppCompatDelegate.MODE_NIGHT_NO
                 }
@@ -33,7 +34,7 @@ class CalmConnectApp : Application() {
 
                 withContext(Dispatchers.Main) {
                     AppCompatDelegate.setDefaultNightMode(
-                        AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                        AppCompatDelegate.MODE_NIGHT_NO
                     )
                 }
             }

@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_game_screen"
+    android:background="@drawable/bg_app_gradient"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="24dp"
+    android:paddingBottom="24dp">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tapping Game"
-        android:textColor="@color/calm_text"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="20dp" />
-
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_game_card"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="👆 Tapping Game"
+            android:textColor="@color/calm_text"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnClose"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="✕"
+            android:textSize="16sp"
+            android:textColor="@color/calm_text"
+            android:gravity="center"
+            android:background="@drawable/bg_card_white" />
+
+    </LinearLayout>
+
+    <!-- Stats card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_white"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:padding="16dp"
         android:layout_marginBottom="24dp">
 
         <TextView
@@ -40,9 +64,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Score: 0"
-            android:textColor="@color/calm_primary_dark"
+            android:textColor="#4CAF93"
             android:textSize="18sp"
-            android:layout_marginTop="8dp" />
+            android:textStyle="bold"
+            android:layout_marginTop="6dp" />
 
         <TextView
             android:id="@+id/tvResult"
@@ -50,26 +75,33 @@
             android:layout_height="wrap_content"
             android:text="Tap the button as fast as you can!"
             android:textColor="@color/calm_subtext"
-            android:textSize="15sp"
-            android:layout_marginTop="12dp" />
+            android:textSize="13sp"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
 
-    <Button
+    <!-- TAP button -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTap"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:background="@drawable/bg_primary_button"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:text="TAP"
         android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:backgroundTint="#4CAF93"
+        app:cornerRadius="100dp"
+        android:layout_marginBottom="24dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRestart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
         android:text="Restart"
         android:textAllCaps="false"
-        android:layout_marginTop="28dp" />
+        android:backgroundTint="#B8C5E8"
+        android:textColor="@color/calm_text"
+        app:cornerRadius="14dp" />
+
 </LinearLayout>

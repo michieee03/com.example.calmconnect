@@ -1,4 +1,4 @@
-package com.example.calmconnect.util
+package calmconnectapplication.util
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,7 +10,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.example.calmconnect.view.MainActivity
+import calmconnectapplication.view.MainActivity
 
 class ReminderWorker(
     private val appContext: Context,

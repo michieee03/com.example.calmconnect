@@ -1,11 +1,14 @@
-package com.example.calmconnect.db.entity
+package calmconnectapplication.db.entity
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 
-@Entity(tableName = "routine_steps")
+@Entity(
+    tableName = "routine_steps",
+    primaryKeys = ["id", "userId", "date"]   // composite PK — unique per step per user per day
+)
 data class RoutineStep(
-    @PrimaryKey val id: Int,
+    val id: Int,
+    val userId: String,
     val title: String,
     val description: String,
     val durationMinutes: Int,

@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.calmconnect.controller.impl.StudyTimerControllerImpl
-import com.example.calmconnect.databinding.FragmentPomodoroBinding
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.impl.StudyTimerControllerImpl
+import calmconnectapplication.databinding.FragmentPomodoroBinding
+import calmconnectapplication.util.Result
 
 class PomodoroFragment : Fragment() {
 
@@ -33,6 +33,7 @@ class PomodoroFragment : Fragment() {
             binding.tvTimer.text = "%02d:%02d".format(mm, ss)
             binding.tvPhase.text = state.phase.name.replace('_', ' ')
             binding.tvPomodoros.text = "Completed: ${state.completedPomodoros}"
+            updateDots(state.completedPomodoros)
         }
 
         binding.btnStart.setOnClickListener {
@@ -49,10 +50,27 @@ class PomodoroFragment : Fragment() {
         binding.btnResume.setOnClickListener { timerController.resume() }
 
         binding.btnReset.setOnClickListener { timerController.reset() }
+
+        binding.btnClose.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun updateDots(completed: Int) {
+        binding.llDots.removeAllViews()
+        val total = 4
+        for (i in 0 until total) {
+            val dot = android.widget.TextView(requireContext()).apply {
+                text = if (i < completed) "🍅" else "○"
+                textSize = if (i < completed) 16f else 18f
+                setPadding(6, 0, 6, 0)
+            }
+            binding.llDots.addView(dot)
+        }
     }
 }

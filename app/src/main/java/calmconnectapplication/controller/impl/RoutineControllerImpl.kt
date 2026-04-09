@@ -1,10 +1,11 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.controller.RoutineController
-import com.example.calmconnect.db.entity.RoutineStep
-import com.example.calmconnect.model.RoutineRepository
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.RoutineController
+import calmconnectapplication.db.entity.RoutineStep
+import calmconnectapplication.model.RoutineRepository
+import calmconnectapplication.util.Result
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.runBlocking
 import java.time.LocalDate
 
@@ -24,11 +25,15 @@ class RoutineControllerImpl(private val routineRepository: RoutineRepository) : 
 
     init {
         runBlocking {
+            // Remove stale rows from previous days to keep DB clean
+            routineRepository.deleteOlderThan(today)
+
             val existing = routineRepository.getByDateSync(today)
             if (existing.isEmpty()) {
                 val steps = DEFAULT_STEPS.map { (id, title, descDuration) ->
                     RoutineStep(
                         id = id,
+                        userId = UserSession.uid,
                         title = title,
                         description = descDuration.first,
                         durationMinutes = descDuration.second,

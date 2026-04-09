@@ -1,4 +1,4 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 enum class SoundType {
     RAIN_DROPS,

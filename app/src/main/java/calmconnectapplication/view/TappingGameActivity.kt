@@ -1,11 +1,11 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
-import com.example.calmconnect.controller.impl.GameControllerImpl
-import com.example.calmconnect.databinding.ActivityTappingGameBinding
-import com.example.calmconnect.model.GameType
+import calmconnectapplication.controller.impl.GameControllerImpl
+import calmconnectapplication.databinding.ActivityTappingGameBinding
+import calmconnectapplication.model.GameType
 
 class TappingGameActivity : AppCompatActivity() {
 
@@ -22,6 +22,8 @@ class TappingGameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         gameController = GameControllerImpl(this)
+
+        binding.btnClose.setOnClickListener { finish() }
 
         binding.tvScore.text = "Score: 0"
         binding.tvTimer.text = "Time: 10"

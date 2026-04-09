@@ -1,4 +1,4 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import android.content.Context
 import android.media.AudioAttributes
@@ -8,8 +8,8 @@ import android.media.MediaPlayer
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
-import com.example.calmconnect.controller.SoundController
-import com.example.calmconnect.model.SoundType
+import calmconnectapplication.controller.SoundController
+import calmconnectapplication.model.SoundType
 
 class SoundControllerImpl(
     private val context: Context,

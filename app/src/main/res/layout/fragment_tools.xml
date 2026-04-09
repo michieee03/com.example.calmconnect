@@ -3,129 +3,337 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@android:color/transparent"
+    android:fillViewport="true">
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:useDefaultMargins="true">
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardSoundscapes"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="🎵 Soundscapes"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+        <!-- Page title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wellness Tools"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="4dp" />
 
-        <com.google.android.material.card.MaterialCardView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a tool to support your wellbeing"
+            android:textSize="13sp"
+            android:textColor="@color/calm_subtext"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Featured banner: Stress Relief -->
+        <LinearLayout
             android:id="@+id/cardStressRelief"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="🧘 Stress Relief"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/bg_featured_banner"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardPomodoro"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="⏱ Pomodoro"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEATURED"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFFCC"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stress Relief"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Breathing · Meditation · Journal"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFFCC" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:text="🧘"
+                android:textSize="36sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Section: Mind & Focus -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mind &amp; Focus"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <!-- Pomodoro -->
+            <LinearLayout
+                android:id="@+id/cardPomodoro"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_tool_card_blue"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="⏱"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_white"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pomodoro"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Study timer"
+                    android:textSize="11sp"
+                    android:textColor="#5A6A8A"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+            <!-- Quotes -->
+            <LinearLayout
+                android:id="@+id/cardQuotes"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tool_card_lavender"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="💬"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_white"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily Quotes"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inspiration"
+                    android:textSize="11sp"
+                    android:textColor="#5A4A7A"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Section: Relax & Explore -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Relax &amp; Explore"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <!-- Soundscapes -->
+            <LinearLayout
+                android:id="@+id/cardSoundscapes"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_tool_card_green"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="🎵"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_white"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Soundscapes"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ambient sounds"
+                    android:textSize="11sp"
+                    android:textColor="#2E6A5A"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+            <!-- Nearby Places -->
+            <LinearLayout
+                android:id="@+id/cardNearbyPlaces"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tool_card_peach"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="📍"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_white"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calm Places"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Find nearby"
+                    android:textSize="11sp"
+                    android:textColor="#7A4A2A"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Section: Play -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play &amp; Unwind"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Games — full width -->
+        <LinearLayout
             android:id="@+id/cardGames"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_health_card"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:text="🎮"
+                android:textSize="28sp"
+                android:gravity="center"
+                android:background="@drawable/bg_card_white"
+                android:layout_marginEnd="16dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mindful Games"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tapping · Memory · Breathing game"
+                    android:textSize="12sp"
+                    android:textColor="#5A7A6A"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="🎮 Games"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+                android:text="›"
+                android:textSize="24sp"
+                android:textColor="#4CAF93" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardQuotes"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="💬 Quotes"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardNearbyPlaces"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="📍 Nearby Places"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:padding="8dp" />
-        </com.google.android.material.card.MaterialCardView>
-
-    </GridLayout>
+    </LinearLayout>
 
 </ScrollView>

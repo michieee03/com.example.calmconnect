@@ -1,8 +1,8 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.model.TimerState
-import com.example.calmconnect.util.Result
+import calmconnectapplication.model.TimerState
+import calmconnectapplication.util.Result
 
 interface StudyTimerController {
     fun startSession(workMinutes: Int, breakMinutes: Int): Result<Unit>

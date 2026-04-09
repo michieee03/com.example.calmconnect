@@ -1,9 +1,9 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.entity.UserProfile
-import com.example.calmconnect.util.Result
+import calmconnectapplication.db.entity.UserProfile
+import calmconnectapplication.util.Result
 
 interface ProfileController {
     fun getProfile(): LiveData<UserProfile>

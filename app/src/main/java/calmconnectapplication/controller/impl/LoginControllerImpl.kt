@@ -1,7 +1,7 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
-import com.example.calmconnect.controller.LoginController
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.LoginController
+import calmconnectapplication.util.Result
 
 class LoginControllerImpl : LoginController {
 

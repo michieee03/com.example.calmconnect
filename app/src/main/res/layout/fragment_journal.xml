@@ -1,42 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@android:color/transparent"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Journal"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
-
-    <EditText
-        android:id="@+id/editTextJournal"
+    <!-- Write card -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:hint="Write your thoughts..."
-        android:inputType="textMultiLine"
-        android:gravity="top"
-        android:padding="8dp"
-        android:background="@android:drawable/edit_text"
-        android:layout_marginBottom="8dp" />
-
-    <Button
-        android:id="@+id/btnSaveJournal"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save Entry"
-        android:layout_marginBottom="16dp" />
+        android:background="@drawable/bg_card_white"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✍️ Write Your Thoughts"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="What's on your mind today?"
+            android:layout_marginBottom="12dp"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextJournal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:inputType="textMultiLine"
+                android:gravity="top" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveJournal"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="Save Entry"
+            android:backgroundTint="#4CAF93"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Past Entries"
-        android:textSize="16sp"
+        android:text="📖 Past Entries"
+        android:textSize="15sp"
         android:textStyle="bold"
+        android:textColor="@color/calm_text"
         android:layout_marginBottom="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView

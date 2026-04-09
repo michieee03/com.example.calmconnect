@@ -1,49 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="16dp">
+    android:background="@android:color/transparent"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Settings card -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guided Meditation"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:background="@drawable/bg_card_white"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Duration (minutes)"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guided Meditation"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/calm_text"
+            android:layout_marginBottom="12dp" />
 
-    <EditText
-        android:id="@+id/editTextDuration"
-        android:layout_width="120dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration (minutes)"
+            android:textSize="13sp"
+            android:textColor="@color/calm_subtext"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:boxCornerRadiusTopStart="12dp" app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp" app:boxCornerRadiusBottomEnd="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:inputType="number"
+                android:gravity="center" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartMeditation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Start Meditation"
+            android:backgroundTint="#4CAF93"
+            app:cornerRadius="14dp" />
+
+    </LinearLayout>
+
+    <!-- Countdown display -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="5"
-        android:inputType="number"
+        android:background="@drawable/bg_featured_banner"
+        android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        android:padding="40dp">
 
-    <Button
-        android:id="@+id/btnStartMeditation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
-        android:layout_marginBottom="24dp" />
+        <TextView
+            android:id="@+id/tvCountdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textSize="56sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center" />
 
-    <TextView
-        android:id="@+id/tvCountdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="—"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        android:gravity="center" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="seconds remaining"
+            android:textSize="13sp"
+            android:textColor="#FFFFFFCC"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

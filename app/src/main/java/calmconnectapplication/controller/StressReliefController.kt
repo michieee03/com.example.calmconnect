@@ -1,11 +1,11 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.entity.JournalEntry
-import com.example.calmconnect.model.BreathingPattern
-import com.example.calmconnect.model.BreathingSession
-import com.example.calmconnect.model.MeditationSession
-import com.example.calmconnect.util.Result
+import calmconnectapplication.db.entity.JournalEntry
+import calmconnectapplication.model.BreathingPattern
+import calmconnectapplication.model.BreathingSession
+import calmconnectapplication.model.MeditationSession
+import calmconnectapplication.util.Result
 
 interface StressReliefController {
     fun startBreathingExercise(pattern: BreathingPattern): BreathingSession

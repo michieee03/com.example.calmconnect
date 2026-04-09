@@ -1,4 +1,4 @@
-package com.example.calmconnect.db.dao
+package calmconnectapplication.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,11 +6,11 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.calmconnect.db.entity.Quote
+import calmconnectapplication.db.entity.Quote
 
 @Dao
 interface QuoteDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(quotes: List<Quote>)
 
     @Update

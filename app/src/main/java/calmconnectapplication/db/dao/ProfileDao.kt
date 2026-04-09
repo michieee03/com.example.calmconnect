@@ -1,4 +1,4 @@
-package com.example.calmconnect.db.dao
+package calmconnectapplication.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.calmconnect.db.entity.UserProfile
+import calmconnectapplication.db.entity.UserProfile
 
 @Dao
 interface ProfileDao {
@@ -16,9 +16,9 @@ interface ProfileDao {
     @Update
     suspend fun update(profile: UserProfile)
 
-    @Query("SELECT * FROM user_profile WHERE id = 1")
-    fun getProfile(): LiveData<UserProfile?>
+    @Query("SELECT * FROM user_profile WHERE userId = :userId")
+    fun getProfile(userId: String): LiveData<UserProfile?>
 
-    @Query("SELECT * FROM user_profile WHERE id = 1")
-    suspend fun getProfileSync(): UserProfile?
+    @Query("SELECT * FROM user_profile WHERE userId = :userId")
+    suspend fun getProfileSync(userId: String): UserProfile?
 }

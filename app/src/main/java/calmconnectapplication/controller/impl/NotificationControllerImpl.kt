@@ -1,4 +1,4 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import android.Manifest
 import android.content.Context
@@ -13,8 +13,8 @@ import androidx.work.Data
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
-import com.example.calmconnect.controller.NotificationController
-import com.example.calmconnect.util.ReminderWorker
+import calmconnectapplication.controller.NotificationController
+import calmconnectapplication.util.ReminderWorker
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 

@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.calmconnect.R
-import com.example.calmconnect.controller.impl.QuoteControllerImpl
-import com.example.calmconnect.databinding.FragmentQuotesBinding
-import com.example.calmconnect.db.AppDatabase
-import com.example.calmconnect.db.entity.Quote
-import com.example.calmconnect.model.QuoteRepository
+import calmconnectapplication.R
+import calmconnectapplication.controller.impl.QuoteControllerImpl
+import calmconnectapplication.databinding.FragmentQuotesBinding
+import calmconnectapplication.db.AppDatabase
+import calmconnectapplication.db.entity.Quote
+import calmconnectapplication.model.QuoteRepository
 
 class QuotesFragment : Fragment() {
 
@@ -23,6 +24,9 @@ class QuotesFragment : Fragment() {
 
     private lateinit var quoteController: QuoteControllerImpl
     private var dailyQuote: Quote? = null
+    private var isShowingSearchResults = false
+
+    private val adapter = QuoteAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -37,20 +41,21 @@ class QuotesFragment : Fragment() {
         val db = AppDatabase.getInstance(requireContext())
         quoteController = QuoteControllerImpl(QuoteRepository(db.quoteDao()))
 
-        val adapter = QuoteAdapter()
         binding.recyclerViewFavorites.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewFavorites.adapter = adapter
 
         // Load daily quote
         val quote = quoteController.getDailyQuote()
         dailyQuote = quote
-        binding.tvQuoteText.text = "\"${quote.text}\""
+        binding.tvQuoteText.text = "\u201C${quote.text}\u201D"
         binding.tvQuoteAuthor.text = "— ${quote.author}"
         updateFavoriteButton(quote.isFavorite)
 
-        // Observe favorites
+        // Observe favorites (default view)
         quoteController.getFavoriteQuotes().observe(viewLifecycleOwner) { favorites ->
-            adapter.submitList(favorites)
+            if (!isShowingSearchResults) {
+                showFavorites(favorites)
+            }
         }
 
         binding.btnFavorite.setOnClickListener {
@@ -65,19 +70,59 @@ class QuotesFragment : Fragment() {
             updateFavoriteButton(dailyQuote!!.isFavorite)
         }
 
+        // Live search as user types
+        binding.editTextSearch.addTextChangedListener { text ->
+            val query = text.toString().trim()
+            if (query.isEmpty()) {
+                isShowingSearchResults = false
+                binding.tvSectionLabel.text = "⭐ Saved Favorites"
+                binding.tvResultCount.visibility = View.GONE
+                // Re-observe favorites to refresh the list
+                quoteController.getFavoriteQuotes().observe(viewLifecycleOwner) { favorites ->
+                    if (!isShowingSearchResults) showFavorites(favorites)
+                }
+            }
+        }
+
         binding.btnSearch.setOnClickListener {
             val query = binding.editTextSearch.text.toString().trim()
             if (query.isEmpty()) {
-                Toast.makeText(requireContext(), "Enter a search term", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Type a keyword or author to search", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             val results = quoteController.searchQuotes(query)
-            adapter.submitList(results)
+            isShowingSearchResults = true
+            binding.tvSectionLabel.text = "🔍 Search Results"
+            binding.tvResultCount.text = "${results.size} found"
+            binding.tvResultCount.visibility = View.VISIBLE
+            showResults(results)
+        }
+
+        binding.btnClose.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
+    private fun showFavorites(list: List<Quote>) {
+        adapter.submitList(list)
+        binding.tvEmpty.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+        binding.recyclerViewFavorites.visibility = if (list.isEmpty()) View.GONE else View.VISIBLE
+    }
+
+    private fun showResults(list: List<Quote>) {
+        adapter.submitList(list)
+        if (list.isEmpty()) {
+            binding.tvEmpty.text = "No quotes found.\nTry a different keyword."
+            binding.tvEmpty.visibility = View.VISIBLE
+            binding.recyclerViewFavorites.visibility = View.GONE
+        } else {
+            binding.tvEmpty.visibility = View.GONE
+            binding.recyclerViewFavorites.visibility = View.VISIBLE
         }
     }
 
     private fun updateFavoriteButton(isFavorite: Boolean) {
-        binding.btnFavorite.text = if (isFavorite) "★ Favorited" else "☆ Favorite"
+        binding.btnFavorite.text = if (isFavorite) "★  Saved to Favorites" else "☆  Save to Favorites"
     }
 
     override fun onDestroyView() {
@@ -100,7 +145,7 @@ class QuotesFragment : Fragment() {
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             val q = items[position]
-            holder.tvText.text = "\"${q.text}\""
+            holder.tvText.text = "\u201C${q.text}\u201D"
             holder.tvAuthor.text = "— ${q.author}"
         }
 

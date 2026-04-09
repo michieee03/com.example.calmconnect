@@ -1,8 +1,8 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.entity.RoutineStep
-import com.example.calmconnect.util.Result
+import calmconnectapplication.db.entity.RoutineStep
+import calmconnectapplication.util.Result
 
 interface RoutineController {
     fun getTodayRoutine(): LiveData<List<RoutineStep>>

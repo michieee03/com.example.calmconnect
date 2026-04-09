@@ -1,8 +1,8 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.entity.Quote
-import com.example.calmconnect.util.Result
+import calmconnectapplication.db.entity.Quote
+import calmconnectapplication.util.Result
 
 interface QuoteController {
     fun getDailyQuote(): Quote

@@ -1,8 +1,8 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 import androidx.lifecycle.LiveData
 import com.google.android.gms.maps.model.LatLng
-import com.example.calmconnect.model.CalmPlace
+import calmconnectapplication.model.CalmPlace
 
 interface LocationController {
     fun requestCurrentLocation(callback: (LatLng) -> Unit)

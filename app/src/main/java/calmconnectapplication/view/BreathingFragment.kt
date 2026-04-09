@@ -1,13 +1,13 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.calmconnect.controller.impl.StressReliefControllerImpl
-import com.example.calmconnect.databinding.FragmentBreathingBinding
-import com.example.calmconnect.model.BreathingPattern
+import calmconnectapplication.controller.impl.StressReliefControllerImpl
+import calmconnectapplication.databinding.FragmentBreathingBinding
+import calmconnectapplication.model.BreathingPattern
 
 class BreathingFragment(
     private val controller: StressReliefControllerImpl

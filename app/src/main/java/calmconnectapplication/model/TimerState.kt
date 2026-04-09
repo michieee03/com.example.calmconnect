@@ -1,4 +1,4 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 data class TimerState(
     val phase: TimerPhase,

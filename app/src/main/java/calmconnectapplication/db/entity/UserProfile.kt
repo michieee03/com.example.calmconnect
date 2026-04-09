@@ -1,11 +1,11 @@
-package com.example.calmconnect.db.entity
+package calmconnectapplication.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user_profile")
 data class UserProfile(
-    @PrimaryKey val id: Int = 1,  // single-row table
+    @PrimaryKey val userId: String,   // Firebase UID — one row per user
     val name: String,
     val profilePictureUri: String?,
     val isDarkMode: Boolean = false,

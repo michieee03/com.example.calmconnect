@@ -1,14 +1,15 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import android.content.Context
 import android.net.Uri
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.controller.ProfileController
-import com.example.calmconnect.db.entity.UserProfile
-import com.example.calmconnect.model.ProfileRepository
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.ProfileController
+import calmconnectapplication.db.entity.UserProfile
+import calmconnectapplication.model.ProfileRepository
+import calmconnectapplication.util.Result
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.runBlocking
 
 class ProfileControllerImpl(
@@ -18,16 +19,19 @@ class ProfileControllerImpl(
 
     init {
         runBlocking {
-            val existing = profileRepository.getProfileSync()
-            if (existing == null) {
-                profileRepository.insert(
-                    UserProfile(
-                        id = 1,
-                        name = "User",
-                        profilePictureUri = null,
-                        isDarkMode = false
+            val uid = UserSession.uid
+            if (uid.isNotEmpty()) {
+                val existing = profileRepository.getProfileSync()
+                if (existing == null) {
+                    profileRepository.insert(
+                        UserProfile(
+                            userId = uid,
+                            name = "User",
+                            profilePictureUri = null,
+                            isDarkMode = false
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -38,12 +42,11 @@ class ProfileControllerImpl(
     }
 
     override fun updateName(name: String): Result<Unit> {
-        if (name.isBlank()) {
-            return Result.Error("Name cannot be empty")
-        }
+        if (name.isBlank()) return Result.Error("Name cannot be empty")
+        val uid = UserSession.uid
         val current = runBlocking { profileRepository.getProfileSync() }
         val updated = current?.copy(name = name)
-            ?: UserProfile(id = 1, name = name, profilePictureUri = null, isDarkMode = false)
+            ?: UserProfile(userId = uid, name = name, profilePictureUri = null, isDarkMode = false)
         runBlocking {
             if (current != null) profileRepository.update(updated)
             else profileRepository.insert(updated)
@@ -58,9 +61,10 @@ class ProfileControllerImpl(
         } catch (e: Exception) {
             return Result.Error("URI is not readable: ${e.message}")
         }
+        val uid = UserSession.uid
         val current = runBlocking { profileRepository.getProfileSync() }
         val updated = current?.copy(profilePictureUri = uri.toString())
-            ?: UserProfile(id = 1, name = "User", profilePictureUri = uri.toString(), isDarkMode = false)
+            ?: UserProfile(userId = uid, name = "User", profilePictureUri = uri.toString(), isDarkMode = false)
         runBlocking {
             if (current != null) profileRepository.update(updated)
             else profileRepository.insert(updated)
@@ -69,9 +73,10 @@ class ProfileControllerImpl(
     }
 
     override fun toggleDarkMode(enabled: Boolean) {
+        val uid = UserSession.uid
         val current = runBlocking { profileRepository.getProfileSync() }
         val updated = current?.copy(isDarkMode = enabled)
-            ?: UserProfile(id = 1, name = "User", profilePictureUri = null, isDarkMode = enabled)
+            ?: UserProfile(userId = uid, name = "User", profilePictureUri = null, isDarkMode = enabled)
         runBlocking {
             if (current != null) profileRepository.update(updated)
             else profileRepository.insert(updated)

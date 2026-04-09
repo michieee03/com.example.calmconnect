@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.calmconnect.R
-import com.example.calmconnect.databinding.ActivityLoginBinding
+import androidx.lifecycle.lifecycleScope
+import calmconnectapplication.R
+import calmconnectapplication.databinding.ActivityLoginBinding
+import calmconnectapplication.db.AppDatabase
+import calmconnectapplication.util.FirestoreSyncService
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -82,6 +86,13 @@ class LoginActivity : AppCompatActivity() {
                             prefs.edit()
                                 .putBoolean("remember_me", binding.cbRememberMe.isChecked)
                                 .apply()
+
+                            // Sync cloud data to local on login
+                            lifecycleScope.launch {
+                                FirestoreSyncService.syncFromCloud(
+                                    AppDatabase.getInstance(applicationContext)
+                                )
+                            }
 
                             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this, MainActivity::class.java))

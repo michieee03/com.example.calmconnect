@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.calmconnect.controller.impl.GameControllerImpl
-import com.example.calmconnect.databinding.FragmentGamesBinding
-import com.example.calmconnect.model.GameType
+import calmconnectapplication.controller.impl.GameControllerImpl
+import calmconnectapplication.databinding.FragmentGamesBinding
+import calmconnectapplication.model.GameType
 
 class GamesFragment : Fragment() {
 
@@ -43,6 +43,10 @@ class GamesFragment : Fragment() {
         binding.cardBreathingGame.setOnClickListener {
             gameController.startGame(GameType.BREATHING)
             startActivity(Intent(requireContext(), BreathingGameActivity::class.java))
+        }
+
+        binding.btnClose.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

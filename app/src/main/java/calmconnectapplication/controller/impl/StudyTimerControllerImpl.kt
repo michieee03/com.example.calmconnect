@@ -1,11 +1,11 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.calmconnect.controller.StudyTimerController
-import com.example.calmconnect.model.TimerPhase
-import com.example.calmconnect.model.TimerState
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.StudyTimerController
+import calmconnectapplication.model.TimerPhase
+import calmconnectapplication.model.TimerState
+import calmconnectapplication.util.Result
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

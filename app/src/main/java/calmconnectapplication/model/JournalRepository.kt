@@ -1,8 +1,9 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.dao.JournalDao
-import com.example.calmconnect.db.entity.JournalEntry
+import calmconnectapplication.db.dao.JournalDao
+import calmconnectapplication.db.entity.JournalEntry
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -12,5 +13,6 @@ class JournalRepository(private val journalDao: JournalDao) {
         journalDao.insert(entry)
     }
 
-    fun getAll(): LiveData<List<JournalEntry>> = journalDao.getAll()
+    fun getAll(): LiveData<List<JournalEntry>> =
+        journalDao.getAllByUser(UserSession.uid)
 }

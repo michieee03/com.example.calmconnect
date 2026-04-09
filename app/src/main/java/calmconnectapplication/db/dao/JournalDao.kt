@@ -1,4 +1,4 @@
-package com.example.calmconnect.db.dao
+package calmconnectapplication.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.calmconnect.db.entity.JournalEntry
+import calmconnectapplication.db.entity.JournalEntry
 
 @Dao
 interface JournalDao {
@@ -16,6 +16,9 @@ interface JournalDao {
     @Delete
     suspend fun delete(entry: JournalEntry)
 
-    @Query("SELECT * FROM journal_entries ORDER BY timestamp DESC")
-    fun getAll(): LiveData<List<JournalEntry>>
+    @Query("SELECT * FROM journal_entries WHERE userId = :userId ORDER BY timestamp DESC")
+    fun getAllByUser(userId: String): LiveData<List<JournalEntry>>
+
+    @Query("SELECT * FROM journal_entries WHERE userId = :userId ORDER BY timestamp DESC")
+    suspend fun getAllByUserSync(userId: String): List<JournalEntry>
 }

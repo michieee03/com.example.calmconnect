@@ -1,13 +1,14 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.controller.StressReliefController
-import com.example.calmconnect.db.entity.JournalEntry
-import com.example.calmconnect.model.BreathingPattern
-import com.example.calmconnect.model.BreathingSession
-import com.example.calmconnect.model.JournalRepository
-import com.example.calmconnect.model.MeditationSession
-import com.example.calmconnect.util.Result
+import calmconnectapplication.controller.StressReliefController
+import calmconnectapplication.db.entity.JournalEntry
+import calmconnectapplication.model.BreathingPattern
+import calmconnectapplication.model.BreathingSession
+import calmconnectapplication.model.JournalRepository
+import calmconnectapplication.model.MeditationSession
+import calmconnectapplication.util.Result
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -91,7 +92,7 @@ class StressReliefControllerImpl(
         }
 
         val date = DATE_FORMAT.format(Date(timestamp))
-        val entry = JournalEntry(text = text, timestamp = timestamp, date = date)
+        val entry = JournalEntry(userId = UserSession.uid, text = text, timestamp = timestamp, date = date)
         runBlocking { journalRepository.insert(entry) }
         return Result.Success(Unit)
     }

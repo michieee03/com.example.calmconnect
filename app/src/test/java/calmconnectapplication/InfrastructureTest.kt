@@ -1,12 +1,12 @@
-package com.example.calmconnect
+package calmconnectapplication
 
-import com.example.calmconnect.model.BreathingPattern
-import com.example.calmconnect.model.GameType
-import com.example.calmconnect.model.SoundType
-import com.example.calmconnect.model.TimerPhase
-import com.example.calmconnect.model.TimerState
-import com.example.calmconnect.util.Constants
-import com.example.calmconnect.util.Result
+import calmconnectapplication.model.BreathingPattern
+import calmconnectapplication.model.GameType
+import calmconnectapplication.model.SoundType
+import calmconnectapplication.model.TimerPhase
+import calmconnectapplication.model.TimerState
+import calmconnectapplication.util.Constants
+import calmconnectapplication.util.Result
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue

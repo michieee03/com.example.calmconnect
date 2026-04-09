@@ -1,6 +1,6 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
-import com.example.calmconnect.model.SoundType
+import calmconnectapplication.model.SoundType
 
 interface SoundController {
     fun play(soundType: SoundType)

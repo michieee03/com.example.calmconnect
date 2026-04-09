@@ -1,4 +1,4 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
 interface NotificationController {
     fun scheduleDaily(hour: Int, minute: Int, message: String)

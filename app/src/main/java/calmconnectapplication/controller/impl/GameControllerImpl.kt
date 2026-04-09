@@ -1,10 +1,10 @@
-package com.example.calmconnect.controller.impl
+package calmconnectapplication.controller.impl
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.calmconnect.controller.GameController
-import com.example.calmconnect.model.GameSession
-import com.example.calmconnect.model.GameType
+import calmconnectapplication.controller.GameController
+import calmconnectapplication.model.GameSession
+import calmconnectapplication.model.GameType
 
 class GameControllerImpl(context: Context) : GameController {
 

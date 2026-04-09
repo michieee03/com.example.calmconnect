@@ -1,8 +1,9 @@
-package com.example.calmconnect.model
+package calmconnectapplication.model
 
 import androidx.lifecycle.LiveData
-import com.example.calmconnect.db.dao.RoutineDao
-import com.example.calmconnect.db.entity.RoutineStep
+import calmconnectapplication.db.dao.RoutineDao
+import calmconnectapplication.db.entity.RoutineStep
+import calmconnectapplication.util.UserSession
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -16,9 +17,14 @@ class RoutineRepository(private val routineDao: RoutineDao) {
         routineDao.update(step)
     }
 
-    fun getByDate(date: String): LiveData<List<RoutineStep>> = routineDao.getByDate(date)
+    fun getByDate(date: String): LiveData<List<RoutineStep>> =
+        routineDao.getByDate(UserSession.uid, date)
 
     suspend fun getByDateSync(date: String): List<RoutineStep> = withContext(Dispatchers.IO) {
-        routineDao.getByDateSync(date)
+        routineDao.getByDateSync(UserSession.uid, date)
+    }
+
+    suspend fun deleteOlderThan(date: String) = withContext(Dispatchers.IO) {
+        routineDao.deleteOlderThan(UserSession.uid, date)
     }
 }

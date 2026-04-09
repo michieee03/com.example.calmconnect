@@ -1,7 +1,7 @@
-package com.example.calmconnect.controller
+package calmconnectapplication.controller
 
-import com.example.calmconnect.model.GameSession
-import com.example.calmconnect.model.GameType
+import calmconnectapplication.model.GameSession
+import calmconnectapplication.model.GameType
 
 interface GameController {
     fun startGame(type: GameType): GameSession

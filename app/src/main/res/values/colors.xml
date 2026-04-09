@@ -19,6 +19,11 @@
     <color name="memory_card_front">#7C4DFF</color>
     <color name="memory_card_back">#EDE7F6</color>
 
+    <!-- Gradient palette -->
+    <color name="gradient_start">#A8E6CF</color>
+    <color name="gradient_mid">#C5D8EA</color>
+    <color name="gradient_end">#B8C5E8</color>
+
     <!-- Login / Signup UI colors -->
     <color name="bg_main">#F6F4FB</color>
     <color name="card_bg">#FFFFFF</color>

@@ -1,4 +1,4 @@
-package com.example.calmconnect.view
+package calmconnectapplication.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.calmconnect.R
-import com.example.calmconnect.controller.impl.StressReliefControllerImpl
-import com.example.calmconnect.databinding.FragmentJournalBinding
-import com.example.calmconnect.db.entity.JournalEntry
-import com.example.calmconnect.util.Result
+import calmconnectapplication.R
+import calmconnectapplication.controller.impl.StressReliefControllerImpl
+import calmconnectapplication.databinding.FragmentJournalBinding
+import calmconnectapplication.db.entity.JournalEntry
+import calmconnectapplication.util.Result
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

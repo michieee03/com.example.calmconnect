@@ -1,4 +1,4 @@
-package com.example.calmconnect.db.entity
+package calmconnectapplication.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

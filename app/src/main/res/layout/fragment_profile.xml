@@ -3,159 +3,511 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <!-- Profile Picture -->
-        <ImageView
-            android:id="@+id/imgProfilePicture"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="Profile picture"
-            android:scaleType="centerCrop"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+        <!-- Top gradient header with avatar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnChangePhoto"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:text="Change Photo" />
+            <!-- Avatar with ring -->
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp">
 
-        <!-- Name Section -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilName"
+                <ImageView
+                    android:id="@+id/imgProfilePicture"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_emotion_item"
+                    android:src="@drawable/calmconnectlogo"
+                    android:contentDescription="Profile picture" />
+
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/bg_avatar_ring" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Name"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/calm_text" />
+
+            <TextView
+                android:id="@+id/tvProfileStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Focusing on deep breaths today"
+                android:textSize="13sp"
+                android:textColor="@color/calm_subtext" />
+
+        </LinearLayout>
+
+        <!-- White card panel -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Display Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:orientation="vertical"
+            android:background="@drawable/bg_profile_card"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etName"
+            <!-- Mindfulness Meter -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mindfulness Meter"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/calm_text"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:maxLines="1" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <!-- Days Streak -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_stat_card"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSaveName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"
-            android:text="Save Name" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌿"
+                        android:textSize="18sp" />
 
-        <!-- Dark Mode Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tvDaysStreak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/calm_text" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Days Streak"
+                        android:textSize="10sp"
+                        android:textColor="@color/calm_subtext" />
+
+                </LinearLayout>
+
+                <!-- Minutes Mindful -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_stat_card"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧘"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvMinutesMindful"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/calm_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Minutes Mindful"
+                        android:textSize="10sp"
+                        android:textColor="@color/calm_subtext" />
+
+                </LinearLayout>
+
+                <!-- Sessions Done -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_stat_card"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvSessionsDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/calm_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sessions Done"
+                        android:textSize="10sp"
+                        android:textColor="@color/calm_subtext" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Progress Visualization -->
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Dark Mode"
-                android:textAppearance="?attr/textAppearanceBody1" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchDarkMode"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Progress Visualization"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/calm_text"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <!-- Zen Garden card (clickable) -->
+                <LinearLayout
+                    android:id="@+id/cardZenGarden"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_health_card"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌱"
+                        android:textSize="32sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Zen Garden"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/calm_text"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvGardenPreview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap to visit"
+                        android:textSize="10sp"
+                        android:textColor="#4CAF93"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+                <!-- Mood trend chart -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_stat_card"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mood Trend (This Week)"
+                        android:textSize="10sp"
+                        android:textColor="@color/calm_subtext"
+                        android:layout_marginBottom="4dp" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/miniMoodChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Edit name row -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Display Name"
+                android:layout_marginBottom="8dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveName"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:backgroundTint="#4CAF93"
+                android:text="Save Name"
+                android:layout_marginBottom="20dp"
+                app:cornerRadius="12dp" />
+
+            <!-- My Favorites row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_menu_row"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🤍"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="My Favorites"
+                    android:textSize="14sp"
+                    android:textColor="@color/calm_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Mode"
+                    android:textSize="13sp"
+                    android:textColor="@color/calm_subtext"
+                    android:layout_marginEnd="8dp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchDarkMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <!-- Reminders row -->
+            <LinearLayout
+                android:id="@+id/rowReminders"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_menu_row"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔔"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reminders"
+                    android:textSize="14sp"
+                    android:textColor="@color/calm_text" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <!-- Reminder time (hidden by default) -->
+            <LinearLayout
+                android:id="@+id/layoutReminderTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_stat_card"
+                android:padding="12dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hour:"
+                    android:layout_marginEnd="8dp" />
+
+                <NumberPicker
+                    android:id="@+id/pickerHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Min:"
+                    android:layout_marginEnd="8dp" />
+
+                <NumberPicker
+                    android:id="@+id/pickerMinute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Set"
+                    android:backgroundTint="#4CAF93"
+                    app:cornerRadius="10dp" />
+
+            </LinearLayout>
+
+            <!-- Logout row -->
+            <LinearLayout
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_menu_row"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🚪"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Logout"
+                    android:textSize="14sp"
+                    android:textColor="@color/calm_text" />
+
+            </LinearLayout>
+
+            <!-- Delete Account row -->
+            <LinearLayout
+                android:id="@+id/btnDeleteAccount"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_menu_row"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🗑️"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Delete Account"
+                    android:textSize="14sp"
+                    android:textColor="#EF5350" />
+
+            </LinearLayout>
+
+            <!-- Change photo button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnChangePhoto"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Change Photo"
+                app:strokeColor="#4CAF93"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Version -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Version 1.0.0"
+                android:textSize="11sp"
+                android:textColor="@color/calm_subtext"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
-
-        <!-- Reminder Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Daily Reminder"
-            android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Enable Reminder"
-                android:textAppearance="?attr/textAppearanceBody1" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchReminder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <!-- Time Pickers for Reminder -->
-        <LinearLayout
-            android:id="@+id/layoutReminderTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="Hour:" />
-
-            <NumberPicker
-                android:id="@+id/pickerHour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="Minute:" />
-
-            <NumberPicker
-                android:id="@+id/pickerMinute"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSetReminder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="Set Reminder" />
-
-        <!-- Logout -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogout"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Logout" />
 
     </LinearLayout>
 
